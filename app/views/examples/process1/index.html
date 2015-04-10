@@ -1,0 +1,89 @@
+{{<layout}}
+
+{{$pageTitle}}
+	GOV.UK Test Process
+{{/pageTitle}}
+
+{{$content}}
+
+<script type="text/javascript">
+function validateForm() {
+	var x = document.forms["yourDetails"]["first-name"].value;
+	if (x == null || x = "") {
+
+	alrt("Name must be filled out");
+	return false;
+}
+
+}
+
+</script>
+<main id="content" role="main">
+
+	<!--Testing repeating variables -->
+	<h1 class="heading-xlarge">Test process</h1>
+	<p>This is how we repeat answers
+	  <dl>
+    <dt style="font-weight: bold; display: inline;">Name: </dt>
+    <dd style="display: inline">{{ name }}</dd>
+  </dl>
+   <dl>
+    <dt style="font-weight: bold; display: inline;">Address: </dt>
+    <dd style="display: inline">{{ address }}</dd>
+  </dl>
+   <dl>
+    <dt style="font-weight: bold; display: inline;">Age: </dt>
+    <dd style="display: inline">{{ age }}</dd>
+  </dl>
+   <dl>
+    <dt style="font-weight: bold; display: inline;">Owes tax: </dt>
+    <dd style="display: inline">{{ owesTax }}</dd>
+  </dl>
+
+<!-- Testing form items -->
+<h1 class="form-title heading-large">
+      Your details
+    </h1>
+
+   <form name="yourDetails" onsubmit="return validateForm()" method="post">
+
+<!--First name -->
+    <div class="form-group">
+      <label class="form-label-bold" for="first-name">First name</label>
+      <p class="form-hint">This is your name from birth, including middle names</p>
+      <input type="text" class="form-control" id="first-name">
+    </div>
+
+<!--Second name -->
+    <div class="form-group">
+      <label class="form-label-bold" for="surname">Surname</label>
+      <p class="form-hint">This is your namily name</p>
+      <input type="text" class="form-control" id="surname">
+    </div>
+
+
+<!-- Help with name -->
+<div class="form-group">
+      <details>
+        <summary><span class="summary">More about names</span></summary>
+        <div class="panel-indent">
+          <p>
+            If you don’t know your exact name, use the one you put on official documents (for example, your passport or driving licence).
+          </p>
+          
+        </div>
+      </details>
+    </div>
+
+    <div class="form-group">
+      <input type="submit" class="button" value="Continue">
+
+  </form>
+
+    </main>
+
+
+
+{{/content}}
+
+{{/layout}}
